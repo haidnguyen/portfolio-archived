@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
+
+const slide = keyframes`
+  from {
+    transform: translateY(-40px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+`;
 
 const Wrapper = styled.div`
   background-color: var(--dark);
@@ -7,6 +18,9 @@ const Wrapper = styled.div`
   align-items: center;
   height: 3rem;
   border-bottom: 3px solid var(--light-cyan);
+  &.fixed {
+    animation: ${slide} .75s ease;
+  }
 `;
 
 const Container = styled.div`
@@ -15,8 +29,9 @@ const Container = styled.div`
   display: flex;
 `;
 
-const Item = styled.span`
+const Item = styled(HashLink)`
   color: ${props => props.active ? 'var(--hightlight)' : 'var(--white)'};
+  text-decoration: none;
   font-size: 1rem;
   text-transform: uppercase;
   margin: 0 20px;
