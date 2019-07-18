@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "i18next": "^17.0.6",
+    "prop-types": "^15.7.2",
+    "pts": "^0.8.6",
+    "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-feather": "^2.0.3",
+    "react-i18next": "^10.11.4",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-router-hash-link": "^1.2.1",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "styled-components": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
