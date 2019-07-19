@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Affix } from 'antd';
 import { getActive, doSelectItem } from '../../reducers/navigation';
-import { Wrapper, Container, Item } from './navbar.styles';
+import { Wrapper, Container, Item, Affix } from './navbar.styles';
 
 const Navbar = ({ active, selectItem, ...rest }) => {
 
   const [fixed, setFixed] = useState(false);
 
   const renderItem = value => {
-    const handleClick = _ => {
-      selectItem(value);
-    };
-
     return (
       <Item
         active={value === active}
-        onClick={handleClick}
         key={value}
         to={`#${value}`}
         smooth
@@ -33,7 +27,7 @@ const Navbar = ({ active, selectItem, ...rest }) => {
   return (
     <>
       <Affix onChange={handleFixed}>
-        <Wrapper {...rest} className={fixed && 'fixed'}>
+        <Wrapper {...rest} fixed={fixed}>
           <Container>
             {['home', 'about', 'portfolio', 'contact'].map(item =>
               renderItem(item)

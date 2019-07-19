@@ -1,7 +1,9 @@
 const SELECT_ITEM = '@@navigation/SELECT_ITEM';
+const ANIMATE = '@@navigation/ANIMATE';
 
 export default {
-  SELECT_ITEM
+  SELECT_ITEM,
+  ANIMATE
 }
 
 const doSelectItem = item => ({
@@ -11,6 +13,14 @@ const doSelectItem = item => ({
   }
 });
 
+const doAnimate = animation => ({
+  type: ANIMATE,
+  payload: {
+    animation
+  }
+});
+
 export {
-  doSelectItem
+  doSelectItem,
+  doAnimate
 }

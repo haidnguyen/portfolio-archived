@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.20.3",
     "i18next": "^17.0.6",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "pts": "^0.8.6",
     "ramda": "^0.26.1",

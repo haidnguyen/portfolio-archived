@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+import { Affix as AntAffix } from 'antd';
 import { HashLink } from 'react-router-hash-link';
 
 const slide = keyframes`
@@ -18,9 +19,11 @@ const Wrapper = styled.div`
   align-items: center;
   height: 3rem;
   border-bottom: 3px solid var(--light-cyan);
-  &.fixed {
-    animation: ${slide} .75s ease;
-  }
+  ${props =>
+    props.fixed &&
+    css`
+      animation: ${slide} 0.75s ease;
+    `};
 `;
 
 const Container = styled.div`
@@ -30,13 +33,13 @@ const Container = styled.div`
 `;
 
 const Item = styled(HashLink)`
-  color: ${props => props.active ? 'var(--hightlight)' : 'var(--white)'};
+  color: ${props => (props.active ? 'var(--hightlight)' : 'var(--white)')};
   text-decoration: none;
   font-size: 1rem;
   text-transform: uppercase;
   margin: 0 20px;
   cursor: pointer;
-  transition: color .4s ease;
+  transition: color 0.4s ease;
 
   @media (min-width: 576px) {
     &:hover {
@@ -45,4 +48,10 @@ const Item = styled(HashLink)`
   }
 `;
 
-export { Wrapper, Container, Item };
+const Affix = styled(AntAffix)`
+  .ant-affix {
+    z-index: 99;
+  }
+`;
+
+export { Wrapper, Container, Item, Affix };
