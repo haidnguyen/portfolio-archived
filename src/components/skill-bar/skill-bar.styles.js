@@ -53,6 +53,7 @@ const Bar = styled.div`
     bottom: 0;
     right: 0;
     width: 10%;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;

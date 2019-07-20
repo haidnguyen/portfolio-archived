@@ -8,6 +8,7 @@ const Navbar = ({ active, selectItem, ...rest }) => {
   const [fixed, setFixed] = useState(false);
 
   const renderItem = value => {
+
     return (
       <Item
         active={value === active}

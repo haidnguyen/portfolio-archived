@@ -18,7 +18,8 @@ import {
   Responsive,
   AutoFix,
   Develop,
-  SkillBar
+  SkillBar,
+  Gallery
 } from '../../components';
 import {
   Wrapper,
@@ -36,18 +37,20 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
   const portfolioRef = useRef();
 
   const [aboutAnimate, setAboutAnimate] = useState(false);
+  const [portfolioAnimate, setPortfolioAnimate] = useState(false);
 
   useChangeTitle('Home Page');
 
   useEffect(() => {
     setAboutAnimate(includes('about', animation));
+    setPortfolioAnimate(includes('portfolio', animation));
   }, [animation]);
 
   useEffect(() => {
     const handleScroll = () => {
       if (
         aboutRef.current.getBoundingClientRect().top < 400 &&
-        aboutRef.current.getBoundingClientRect().top > 0 &&
+        aboutRef.current.getBoundingClientRect().top > -10 &&
         active !== 'about'
       ) {
         selectItem('about');
@@ -63,7 +66,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
 
       if (
         portfolioRef.current.getBoundingClientRect().top < 400 &&
-        portfolioRef.current.getBoundingClientRect().top > 0 &&
+        portfolioRef.current.getBoundingClientRect().top > -10 &&
         active !== 'portfolio'
       ) {
         selectItem('portfolio');
@@ -160,9 +163,10 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
           </Container>
         </Box>
       </Section>
-      <Section id='portfolio' ref={portfolioRef} height='1100px'>
+      <Section id='portfolio' ref={portfolioRef}>
         <Box>
           <Title animationName='portfolio'>Projects</Title>
+          <Gallery animate={portfolioAnimate}/>
         </Box>
       </Section>
       <Section id='contact' />
