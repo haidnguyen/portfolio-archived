@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import { Row, Col, Modal as AntModal, Icon } from 'antd';
+import { Row, Col, Modal as AntModal } from 'antd';
 
 const movingBg = keyframes`
   0% {
@@ -318,9 +318,10 @@ const ViewButton = styled.a`
 const Slide = styled.div`
   width: 100%;
   height: 450px;
-  background-color: ${props => props.bg};
   display: inline-block;
   transform: translateX(-700px);
+  background-image: url(${props => props.image});
+  background-size: cover;
 `;
 
 const SlideButton = styled.span`
