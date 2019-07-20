@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,13 +28,14 @@ const TextSection = styled.div`
   color: var(--white);
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
+  cursor: default;
 
   @media (min-width: 576px) {
     font-size: 2.5rem;
   }
 `;
 
-const Button = styled.button`
+const Button = styled(HashLink)`
   color: var(--white);
   font-size: 1rem;
   border: 2px solid var(--white);
@@ -44,6 +46,7 @@ const Button = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   outline: none;
+  text-decoration: none;
 
   svg {
     margin-left: 0.75rem;
@@ -56,6 +59,7 @@ const Button = styled.button`
     &:hover {
       background-color: var(--light-cyan);
       border-color: var(--light-cyan);
+      color: var(--white);
       svg {
         transform: rotate(90deg);
       }

@@ -1,6 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useChangeTitle } from '../../hooks';
-import { doSelectItem, getActive, doAnimate } from '../../reducers/navigation';
+import { includes } from 'ramda';
+import {
+  doSelectItem,
+  getActive,
+  doAnimate,
+  getAnimation
+} from '../../reducers/navigation';
 import { connect } from 'react-redux';
 import {
   Header,
@@ -11,20 +17,37 @@ import {
   Meter,
   Responsive,
   AutoFix,
-  Develop
+  Develop,
+  SkillBar
 } from '../../components';
-import { Wrapper, Container, HexagonSection, Label, Text } from './home.styles';
+import {
+  Wrapper,
+  Container,
+  HexagonSection,
+  Label,
+  Text,
+  InformationSection,
+  Box
+} from './home.styles';
 
-const HomePage = ({ active, selectItem, animate }) => {
+const HomePage = ({ active, selectItem, animate, animation }) => {
   const aboutRef = useRef();
   const homeRef = useRef();
+  const portfolioRef = useRef();
+
+  const [aboutAnimate, setAboutAnimate] = useState(false);
 
   useChangeTitle('Home Page');
+
+  useEffect(() => {
+    setAboutAnimate(includes('about', animation));
+  }, [animation]);
 
   useEffect(() => {
     const handleScroll = () => {
       if (
         aboutRef.current.getBoundingClientRect().top < 400 &&
+        aboutRef.current.getBoundingClientRect().top > 0 &&
         active !== 'about'
       ) {
         selectItem('about');
@@ -37,7 +60,17 @@ const HomePage = ({ active, selectItem, animate }) => {
       ) {
         selectItem('home');
       }
+
+      if (
+        portfolioRef.current.getBoundingClientRect().top < 400 &&
+        portfolioRef.current.getBoundingClientRect().top > 0 &&
+        active !== 'portfolio'
+      ) {
+        selectItem('portfolio');
+        animate('portfolio');
+      }
     };
+
     handleScroll();
     window.onscroll = handleScroll;
 
@@ -52,60 +85,94 @@ const HomePage = ({ active, selectItem, animate }) => {
       <Navbar />
 
       <Section id='about' ref={aboutRef}>
-        <Title animationName='about'>About</Title>
-        <Container>
-          <HexagonSection>
-            <Hexagon>
-              <Meter size={64} color='white' />
-            </Hexagon>
-            <Label>Performance</Label>
-            <Text>
-              Fast load times and smooth animations is my highest priority.
-            </Text>
-          </HexagonSection>
-          <HexagonSection>
-            <Hexagon>
-              <Responsive size={64} color='white' />
-            </Hexagon>
-            <Label>
-              Responsive
-            </Label>
-            <Text>
-              Big or small, mobile or desktop? It doesn't matter.
-            </Text>
-          </HexagonSection>
-          <HexagonSection>
-            <Hexagon>
-              <AutoFix size={64} color='white' />
-            </Hexagon>
-            <Label>
-              Animation
-            </Label>
-            <Text>
-              I like do "something" cool and always looking for more.
-            </Text>
-          </HexagonSection>
-          <HexagonSection>
-            <Hexagon>
-              <Develop size={64} color='white' />
-            </Hexagon>
-            <Label>
-              Technology
-            </Label>
-            <Text>
-              Technologies are my friends and I am never scrared of making new one. 
-            </Text>
-          </HexagonSection>
-        </Container>
+        <Box>
+          <Title animationName='about'>About</Title>
+          <Container>
+            <HexagonSection animate={aboutAnimate}>
+              <Hexagon>
+                <Meter size={64} color='white' />
+              </Hexagon>
+              <Label>Performance</Label>
+              <Text>
+                Fast load times and smooth animations is my highest priority.
+              </Text>
+            </HexagonSection>
+            <HexagonSection delay='.2s' animate={aboutAnimate}>
+              <Hexagon>
+                <Responsive size={64} color='white' />
+              </Hexagon>
+              <Label>Responsive</Label>
+              <Text>
+                Big or small, mobile or desktop? It doesn't matter I can handle
+                all.
+              </Text>
+            </HexagonSection>
+            <HexagonSection delay='.4s' animate={aboutAnimate}>
+              <Hexagon>
+                <AutoFix size={64} color='white' />
+              </Hexagon>
+              <Label>Animation</Label>
+              <Text>
+                I like do "something" cool and always looking for more.
+              </Text>
+            </HexagonSection>
+            <HexagonSection delay='.6s' animate={aboutAnimate}>
+              <Hexagon>
+                <Develop size={64} color='white' />
+              </Hexagon>
+              <Label>Technology</Label>
+              <Text>
+                Technologies are my friends and I am never scrared of making new
+                one.
+              </Text>
+            </HexagonSection>
+          </Container>
+
+          <Container>
+            <InformationSection animate={aboutAnimate} slideLeft>
+              <Label>Who Am I?</Label>
+              <Text>
+                I'm a Front-End Developer. I studied at University of Science Ho
+                Chi Minh City. I have been started make web application with
+                Node.js, Angular, React for 2 years.
+              </Text>
+            </InformationSection>
+            <InformationSection slideRight animate={aboutAnimate}>
+              <SkillBar fill={80} delay='1.65s' animate={aboutAnimate}>
+                JavaScript
+              </SkillBar>
+              <SkillBar fill={70} delay='1.75s' animate={aboutAnimate}>
+                HTML
+              </SkillBar>
+              <SkillBar fill={80} delay='1.85s' animate={aboutAnimate}>
+                CSS
+              </SkillBar>
+              <SkillBar fill={70} delay='1.95s' animate={aboutAnimate}>
+                React
+              </SkillBar>
+              <SkillBar fill={50} delay='2.05s' animate={aboutAnimate}>
+                Node.js
+              </SkillBar>
+              <SkillBar fill={40} delay='2.2s' animate={aboutAnimate}>
+                MongoDB
+              </SkillBar>
+            </InformationSection>
+          </Container>
+        </Box>
       </Section>
-      <Section backgroundColor='blue' id='portfolio' />
-      <Section backgroundColor='green' id='contact' />
+      <Section id='portfolio' ref={portfolioRef} height='1100px'>
+        <Box>
+          <Title animationName='portfolio'>Projects</Title>
+        </Box>
+      </Section>
+      <Section id='contact' />
     </Wrapper>
   );
 };
 
 const mapStateToProps = state => ({
-  active: getActive(state)
+  active: getActive(state),
+  animation: getAnimation(state)
 });
 
 const mapDispatchToProps = dispatch => ({

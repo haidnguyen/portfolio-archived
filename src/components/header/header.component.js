@@ -82,10 +82,10 @@ const Header = ({forwardedRef, ...rest}) => {
         <TextSection>
           Hi, I'm <Hightlight>Nguyễn Đình Hải</Hightlight>.
           <br />
-          Front-end Web Developer.
+          Front-End Web Developer.
         </TextSection>
 
-        <Button>
+        <Button to='#about' smooth>
           View my work <ArrowRight size={20} />
         </Button>
       </Container>

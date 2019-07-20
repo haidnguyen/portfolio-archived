@@ -10,14 +10,16 @@ const Hightlight = styled.span`
 `;
 
 const Section = styled.div`
-  height: 1100px;
-  background-color: ${props => props.backgroundColor};
-  padding: 4rem 0 2rem 0;
+  background-color: var(--white);
+  padding: 4rem 0 8rem 0;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  height: ${props => props.height};
+
+  :nth-of-type(even) {
+    background-color: var(--background-gray);
+  }
 `;
 
 const Meter = styled(MeterIcon)`

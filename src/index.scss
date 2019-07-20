@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 html {
   font-size: 1rem;
   box-sizing: border-box;
@@ -24,9 +26,12 @@ code {
 
 :root {
   --white: #ffffff;
+  --background-gray: #f5f5f5;
   --hightlight: #e31b6d;
   --dark: #1B242F;
   --light-cyan: #04c2c9;
   --gray-dark: #444649;
   --primary: #616161;
+  --gray: #eeeeee;
+  --dark-cyan: #00a1a7;
 }
