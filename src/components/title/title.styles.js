@@ -26,7 +26,7 @@ const Wrapper = styled.span`
 
 const Text = styled.span`
   font-size: 2.5rem;
-  color: var(--gray-dark);
+  color: ${props => (props.contract ? 'var(--white)' : 'var(--gray-dark)')};
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -42,12 +42,13 @@ const Text = styled.span`
 const Bar = styled.div`
   height: 4px;
   width: 80px;
-  background-color: var(--gray-dark);
+  background-color: ${props =>
+    props.contract ? 'var(--white)' : 'var(--gray-dark)'};
   opacity: 0;
   ${props =>
     props.visible &&
     css`
-      animation: ${slideInLeft} 0.7s .35s ease forwards;
+      animation: ${slideInLeft} 0.7s 0.35s ease forwards;
     `};
 `;
 

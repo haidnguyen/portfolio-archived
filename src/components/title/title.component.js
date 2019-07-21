@@ -4,7 +4,7 @@ import { includes } from 'ramda';
 import { Wrapper, Text, Bar } from './title.styles';
 import { getAnimation } from '../../reducers/navigation';
 
-const Title = ({ children, animation, animationName, ...rest }) => {
+const Title = ({ children, animation, animationName, contract, ...rest }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -12,8 +12,8 @@ const Title = ({ children, animation, animationName, ...rest }) => {
   }, [animation, animationName]);
   return (
     <Wrapper {...rest}>
-      <Text visible={visible}>{children}</Text>
-      <Bar visible={visible}/>
+      <Text visible={visible} contract={contract}>{children}</Text>
+      <Bar visible={visible} contract={contract}/>
     </Wrapper>
   );
 };

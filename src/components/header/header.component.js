@@ -26,7 +26,7 @@ const Header = ({forwardedRef, ...rest}) => {
   useEffect(() => {
     const loadCanvas = () => {
       const form = space.getForm();
-      let pts = null;
+      let pts = [];
       let brightness = null;
       const colors = ['#FF3F8E', '#04C2C9', '#2E55C1'];
 

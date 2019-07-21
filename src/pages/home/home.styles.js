@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 import { Row, Col } from 'antd';
+import { ReactComponent as DecorationIcon } from '../../assets/top-decore.svg';
 
 const flipX = keyframes`
   0% {
@@ -148,7 +149,22 @@ const Box = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: ${props => props.pt};
 `;
+
+const Decoration = styled(DecorationIcon)`
+  margin-bottom: 4rem;
+`;
+
+const Mask = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
+
 
 export {
   Wrapper,
@@ -157,5 +173,7 @@ export {
   Label,
   Text,
   InformationSection,
-  Box
+  Box,
+  Mask,
+  Decoration,
 };

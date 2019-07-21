@@ -99,14 +99,14 @@ const Title = styled.div`
 const Hightlight = styled.div`
   font-size: 1rem;
   font-weight: 400;
-  color: var(--hightlight);
+  color: var(--highlight);
   opacity: 0;
 `;
 
 const Button = styled.button`
   outline: none;
   background-color: transparent;
-  border: 2px solid var(--hightlight);
+  border: 2px solid var(--highlight);
   font-size: 1rem;
   text-transform: uppercase;
   color: var(--dark);
@@ -117,7 +117,7 @@ const Button = styled.button`
 
   :hover {
     color: var(--white);
-    background-color: var(--hightlight);
+    background-color: var(--highlight);
   }
 `;
 
@@ -202,6 +202,8 @@ const AniWrapper = styled(Col).attrs(props => ({
 }))`
   height: 300px;
   opacity: 0;
+  display: flex !important;
+  justify-content: center;
   ${props =>
     props.animate &&
     css`
@@ -286,7 +288,7 @@ const ViewButton = styled.a`
   text-decoration: none;
   position: absolute;
   color: var(--white);
-  background-color: var(--hightlight);
+  background-color: var(--highlight);
   transition: color, background-color 0.3s ease;
   font-size: 0.9rem;
   font-weight: 600;
@@ -306,11 +308,11 @@ const ViewButton = styled.a`
   }
 
   :hover {
-    color: var(--hightlight);
+    color: var(--highlight);
     background-color: transparent;
 
     svg {
-      fill: var(--hightlight);
+      fill: var(--highlight);
     }
   }
 `;

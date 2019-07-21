@@ -164,7 +164,7 @@ const Gallery = ({ animate, ...rest }) => {
             <CloseButton onClick={handleClose('vtn')}>
               <Close size={32} color='#bbb' />
             </CloseButton>
-            <ViewButton target='_blank' href=''>
+            <ViewButton target='_blank' href='/'>
               <Tab size={16} /> View Site
             </ViewButton>
           </Content>

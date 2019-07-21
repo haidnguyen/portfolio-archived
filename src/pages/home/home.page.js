@@ -19,7 +19,9 @@ import {
   AutoFix,
   Develop,
   SkillBar,
-  Gallery
+  Gallery,
+  ContactForm,
+  Footer
 } from '../../components';
 import {
   Wrapper,
@@ -28,22 +30,26 @@ import {
   Label,
   Text,
   InformationSection,
-  Box
+  Box,
+  Decoration,
 } from './home.styles';
 
 const HomePage = ({ active, selectItem, animate, animation }) => {
   const aboutRef = useRef();
   const homeRef = useRef();
   const portfolioRef = useRef();
+  const contactRef = useRef();
 
   const [aboutAnimate, setAboutAnimate] = useState(false);
   const [portfolioAnimate, setPortfolioAnimate] = useState(false);
+  const [formAnimate, setFormAnimate] = useState(false);
 
   useChangeTitle('Home Page');
 
   useEffect(() => {
     setAboutAnimate(includes('about', animation));
     setPortfolioAnimate(includes('portfolio', animation));
+    setFormAnimate(includes('contact', animation));
   }, [animation]);
 
   useEffect(() => {
@@ -71,6 +77,15 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
       ) {
         selectItem('portfolio');
         animate('portfolio');
+      }
+
+      if (
+        contactRef.current.getBoundingClientRect().top < 300 &&
+        contactRef.current.getBoundingClientRect().top > -10 &&
+        active !== 'contact'
+      ) {
+        selectItem('contact');
+        animate('contact');
       }
     };
 
@@ -166,10 +181,21 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
       <Section id='portfolio' ref={portfolioRef}>
         <Box>
           <Title animationName='portfolio'>Projects</Title>
-          <Gallery animate={portfolioAnimate}/>
+          <Gallery animate={portfolioAnimate} />
         </Box>
       </Section>
-      <Section id='contact' />
+
+      <Section id='contact' ref={contactRef} dark cleartop>
+        <Decoration />
+        <Box>
+          <Title animationName='contact' contract>
+            Contact
+          </Title>
+          <ContactForm animate={formAnimate}/>
+        </Box>
+      </Section>
+
+      <Footer/>
     </Wrapper>
   );
 };

@@ -33,7 +33,7 @@ const Container = styled.div`
 `;
 
 const Item = styled(HashLink)`
-  color: ${props => (props.active ? 'var(--hightlight)' : 'var(--white)')};
+  color: ${props => (props.active ? 'var(--highlight)' : 'var(--white)')};
   text-decoration: none;
   font-size: 1rem;
   text-transform: uppercase;
@@ -43,7 +43,7 @@ const Item = styled(HashLink)`
 
   @media (min-width: 576px) {
     &:hover {
-      color: var(--hightlight);
+      color: var(--highlight);
     }
   }
 `;
