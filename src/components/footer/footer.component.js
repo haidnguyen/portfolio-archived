@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronDoubleUp } from '../../components';
 import { withRouter } from 'react-router-dom';
-import { Facebook, GitHub, Gitlab, Linkedin } from 'react-feather';
+import { Facebook, GitHub, Gitlab, Linkedin, File } from 'react-feather';
 import {
   Wrapper,
   UpButton,
@@ -35,6 +35,9 @@ const Footer = ({history}) => {
         </LinkContainer>
         <LinkContainer href='https://gitlab.com/ngdhai' target='_blank'>
           <Gitlab color='white' size={24} />
+        </LinkContainer>
+        <LinkContainer href='https://dinhhai281.github.io/#/cv' target='_blank'>
+          <File color='white' size={24} />
         </LinkContainer>
       </Container>
 

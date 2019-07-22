@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   background-color: var(--background-cv);
-  padding: 3rem 0;
+  ${props => props.isPrint ? 'padding: 0' : 'padding: 3rem 0'};
   font-family: 'Roboto';
 `;
 
@@ -201,6 +201,19 @@ const ListContent = styled.div`
   }
 `;
 
+const Button = styled.span`
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--highlight);
+  color: var(--white);
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: column;
+ 
+`;
+
 export {
   Wrapper,
   Container,
@@ -218,5 +231,6 @@ export {
   TextContent,
   SkillItem,
   TimeSpanItem,
-  ListContent
+  ListContent,
+  Button
 };

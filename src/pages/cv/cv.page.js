@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TagMulti,
   FileDocument,
@@ -8,7 +8,10 @@ import {
   Working,
   Project
 } from '../../components';
-import { Home, Mail, Phone, GitHub, Linkedin, User } from 'react-feather';
+import { useChangeTitle } from '../../hooks';
+import { Home, Mail, Phone, User } from 'react-feather';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import {
   Wrapper,
   Container,
@@ -26,16 +29,26 @@ import {
   TextContent,
   SkillItem,
   TimeSpanItem,
-  ListContent
+  ListContent,
+  Button
 } from './cv.styles';
-import { useChangeTitle } from '../../hooks';
+window.html2canvas = html2canvas;
 
 const CV = props => {
   useChangeTitle('Nguyễn Đình Hải - CV');
+  const [isPrint, setPrint] = useState(false);
+
+  const handleDownload = _ => {
+    setPrint(true);
+    setTimeout(() => {
+      window.print();
+      setPrint(false);
+    });
+  };
 
   return (
-    <Wrapper>
-      <Container>
+    <Wrapper isPrint={isPrint}>
+      <Container id='cv'>
         <Header>Nguyễn Đình Hải</Header>
         <PositionSection>Front-End Web Developer</PositionSection>
         <BodySection>
@@ -70,7 +83,7 @@ const CV = props => {
                   <span>(+84) 0886 511 763</span>
                 </ContactItem>
 
-                <ContactItem>
+                {/* <ContactItem>
                   <div>
                     <Linkedin size={16} />
                   </div>
@@ -82,13 +95,13 @@ const CV = props => {
                     <GitHub size={16} />
                   </div>
                   <span>https://github.com/dinhhai281</span>
-                </ContactItem>
+                </ContactItem> */}
 
                 <ContactItem>
                   <div>
                     <User size={16} />
                   </div>
-                  <span>https://dinhhai281.github.io/#/</span>
+                  <span>https://dinhhai281.github.io</span>
                 </ContactItem>
               </Content>
             </Block>
@@ -169,7 +182,6 @@ const CV = props => {
                     </ListContent>
                   </div>
                 </TimeSpanItem>
-
               </Content>
             </Block>
 
@@ -191,11 +203,13 @@ const CV = props => {
                   <div>
                     <ListContent>
                       <h1>Ant-Tech</h1>
-                      <h2>Công việc: Sử dụng Angular để xây dựng front-end cho các project</h2>
+                      <h2>
+                        Công việc: Sử dụng Angular để xây dựng front-end cho các
+                        project
+                      </h2>
                     </ListContent>
                   </div>
                 </TimeSpanItem>
-
               </Content>
             </Block>
 
@@ -257,12 +271,16 @@ const CV = props => {
                     </ListContent>
                   </div>
                 </TimeSpanItem>
-
               </Content>
             </Block>
           </RightSection>
         </BodySection>
       </Container>
+      {!isPrint && (
+        <Button onClick={handleDownload} isPrint={isPrint}>
+          Print CV
+        </Button>
+      )}
     </Wrapper>
   );
 };

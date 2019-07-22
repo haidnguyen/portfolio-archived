@@ -44,7 +44,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
   const [portfolioAnimate, setPortfolioAnimate] = useState(false);
   const [formAnimate, setFormAnimate] = useState(false);
 
-  useChangeTitle('Home Page');
+  useChangeTitle('Nguyễn Đình Hải');
 
   useEffect(() => {
     setAboutAnimate(includes('about', animation));
