@@ -10,7 +10,6 @@ import {
 } from '../../components';
 import { useChangeTitle } from '../../hooks';
 import { Home, Mail, Phone, User } from 'react-feather';
-import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {
   Wrapper,
@@ -32,10 +31,12 @@ import {
   ListContent,
   Button
 } from './cv.styles';
+import { useTranslation } from 'react-i18next';
 window.html2canvas = html2canvas;
 
 const CV = props => {
   useChangeTitle('Nguyễn Đình Hải - CV');
+  const [t] = useTranslation();
   const [isPrint, setPrint] = useState(false);
 
   const handleDownload = _ => {
@@ -58,7 +59,7 @@ const CV = props => {
                 <IconContainer>
                   <TagMulti color='#fff' size={16} />
                 </IconContainer>
-                <span>Liên Lạc</span>
+                <span>{t('contact')}</span>
                 <Line />
               </Title>
               <Content>
@@ -111,17 +112,11 @@ const CV = props => {
                 <IconContainer>
                   <FileDocument color='#fff' size={20} />
                 </IconContainer>
-                <span>Thông Tin</span>
+                <span>{t('profile')}</span>
                 <Line />
               </Title>
 
-              <TextContent>
-                Tôi là Nguyễn Đình Hải, 22 tuổi. Tôi theo học ngành công nghệ
-                phần mềm tại trường Đại học Khoa học Tự nhiên với mong muốn trở
-                thành một kỹ sư phần mềm. Định hướng của tôi là Web Front-End và
-                muốn phát triển theo con đường chuyên sâu về kỹ thuật vì tôi
-                thích tìm hiểu và áp dụng các công nghệ mới vào công việc.
-              </TextContent>
+              <TextContent>{t('profile content')}</TextContent>
             </Block>
 
             <Block>
@@ -129,7 +124,7 @@ const CV = props => {
                 <IconContainer>
                   <Skill color='#fff' size={20} />
                 </IconContainer>
-                <span>Kỹ Năng</span>
+                <span>{t('skills')}</span>
                 <Line />
               </Title>
               <Content>
@@ -150,11 +145,11 @@ const CV = props => {
                 <IconContainer>
                   <Translate color='#fff' size={20} />
                 </IconContainer>
-                <span>Ngoại ngữ</span>
+                <span>{t('language')}</span>
                 <Line />
               </Title>
               <Content>
-                <SkillItem>Tiếng Anh: TOEIC 730</SkillItem>
+                <SkillItem>{t('english')}</SkillItem>
               </Content>
             </Block>
           </LeftSection>
@@ -165,19 +160,19 @@ const CV = props => {
                 <IconContainer>
                   <GraduationCap color='#fff' size={20} />
                 </IconContainer>
-                <span>Học Vấn</span>
+                <span>{t('education')}</span>
                 <Line />
               </Title>
               <Content>
                 <TimeSpanItem>
                   <h1>
                     <h2>9/2015 - 9/2019</h2>
-                    <h3>Trường Đại học Khoa học Tự nhiên - ĐHQG HCM</h3>
+                    <h3>{t('hcmus')}</h3>
                   </h1>
 
                   <div>
                     <ListContent>
-                      <h1>Chuyên ngành: Công nghệ phần mềm</h1>
+                      <h1>{t('professional')}</h1>
                       <h2>GPA: 8.02</h2>
                     </ListContent>
                   </div>
@@ -190,23 +185,20 @@ const CV = props => {
                 <IconContainer>
                   <Working color='#fff' size={20} />
                 </IconContainer>
-                <span>Kinh Nghiệm làm việc</span>
+                <span>{t('work experience')}</span>
                 <Line />
               </Title>
               <Content>
                 <TimeSpanItem>
                   <h1>
                     <h2>6/2018 - 9/2018</h2>
-                    <h3>Front-End Developer</h3>
+                    <h3>Front-End Developer Intern</h3>
                   </h1>
 
                   <div>
                     <ListContent>
                       <h1>Ant-Tech</h1>
-                      <h2>
-                        Công việc: Sử dụng Angular để xây dựng front-end cho các
-                        project
-                      </h2>
+                      <h2>{t('job')}</h2>
                     </ListContent>
                   </div>
                 </TimeSpanItem>
@@ -218,56 +210,56 @@ const CV = props => {
                 <IconContainer>
                   <Project color='#fff' size={20} />
                 </IconContainer>
-                <span>Các Dự Án</span>
+                <span>{t('projects')}</span>
                 <Line />
               </Title>
               <Content>
                 <TimeSpanItem>
                   <h1>
-                    <h2>Đồ án tốt nghiệp</h2>
-                    <h3>Hệ thống đặt phòng khách sạn theo nhóm</h3>
+                    <h2>{t('graduation project')}</h2>
+                    <h3>{t('proj.1.name')}</h3>
                   </h1>
 
                   <div>
                     <ListContent>
-                      <h1>Vai trò: Project Manager, Fullstack Developer</h1>
-                      <h2>React, Node.js, Websocket, MongoDB</h2>
-                      <h3>Phân tích và thiết kế hệ thống</h3>
-                      <h3>Triển khai Front-End và Back-End</h3>
-                      <h3>Thiết kế giao diện</h3>
-                      <h3>Phân chia công việc trong nhóm</h3>
+                      <h1>{t('proj.1.role')}</h1>
+                      <h2>{t('proj.1.tech')}</h2>
+                      <h3>{t('proj.1.list.1')}</h3>
+                      <h3>{t('proj.1.list.2')}</h3>
+                      <h3>{t('proj.1.list.3')}</h3>
+                      <h3>{t('proj.1.list.4')}</h3>
                     </ListContent>
                   </div>
                 </TimeSpanItem>
 
                 <TimeSpanItem>
                   <h1>
-                    <h2>Đồ án môn học</h2>
-                    <h3>Mạng xã hội phân tán</h3>
+                    <h2>{t('school project')}</h2>
+                    <h3>{t('proj.2.name')}</h3>
                   </h1>
 
                   <div>
                     <ListContent>
-                      <h1>Vai trò: Fullstack Developer</h1>
-                      <h2>React, Node.js, TypeScript</h2>
-                      <h3>Phân tích và thiết kế hệ thống</h3>
-                      <h3>Triển khai Front-End và Back-End</h3>
-                      <h3>Thiết kế giao diện</h3>
+                      <h1>{t('proj.2.role')}</h1>
+                      <h2>{t('proj.2.tech')}</h2>
+                      <h3>{t('proj.2.list.1')}</h3>
+                      <h3>{t('proj.2.list.2')}</h3>
+                      <h3>{t('proj.2.list.3')}</h3>
                     </ListContent>
                   </div>
                 </TimeSpanItem>
 
                 <TimeSpanItem>
                   <h1>
-                    <h2>Dự án thực tế</h2>
-                    <h3>Joynit - Ứng dụng quản lý sự kiện</h3>
+                    <h2>{t('real project')}</h2>
+                    <h3>{t('proj.3.name')}</h3>
                   </h1>
 
                   <div>
                     <ListContent>
-                      <h1>Vai trò: Front-End Developer</h1>
-                      <h2>Angular, TypeScript, GraphQL</h2>
-                      <h3>Xây dựng giao diện theo thiết kế</h3>
+                      <h1>{t('proj.3.role')}</h1>
+                      <h2>{t('proj.3.tech')}</h2>
+                      <h3>{t('proj.3.list.1')}</h3>
                     </ListContent>
                   </div>
                 </TimeSpanItem>

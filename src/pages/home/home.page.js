@@ -56,6 +56,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
     const handleScroll = () => {
       if (
         aboutRef &&
+        aboutRef.current &&
         aboutRef.current.getBoundingClientRect().top < 400 &&
         aboutRef.current.getBoundingClientRect().top > -10 &&
         active !== 'about'
@@ -66,6 +67,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
 
       if (
         homeRef &&
+        homeRef.current &&
         homeRef.current.getBoundingClientRect().top > -500 &&
         active !== 'home'
       ) {
@@ -74,6 +76,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
 
       if (
         portfolioRef && 
+        portfolioRef.current &&
         portfolioRef.current.getBoundingClientRect().top < 400 &&
         portfolioRef.current.getBoundingClientRect().top > -10 &&
         active !== 'portfolio'
@@ -84,6 +87,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
 
       if (
         contactRef &&
+        contactRef.current &&
         contactRef.current.getBoundingClientRect().top < 300 &&
         contactRef.current.getBoundingClientRect().top > -10 &&
         active !== 'contact'

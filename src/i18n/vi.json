@@ -1,0 +1,50 @@
+{
+  "common": {
+    "contact": "Liên Lạc",
+    "profile": "Thông Tin",
+    "profile content": "Tôi là Nguyễn Đình Hải, 22 tuổi. Tôi theo học ngành Công Nghệ Thông Tin tại trường Đại học Khoa học Tự nhiên với mong muốn trở thành một kỹ sư phần mềm. Định hướng của tôi là Web Front-End và muốn phát triển theo con đường chuyên sâu về kỹ thuật vì tôi thích tìm hiểu và áp dụng các công nghệ mới vào công việc.",
+    "skills": "Kỹ Năng",
+    "language": "Ngoại Ngữ",
+    "education": "Học Vấn",
+    "work experience": "Kinh Nghiệm Làm Việc",
+    "projects": "Dự Án",
+    "hcmus": "Trường Đại học Khoa học Tự nhiên - ĐHQG HCM",
+    "professional": "Chuyên ngành: Công nghệ phần mềm",
+    "job": "Sử dụng Angular để xây dựng front-end cho các dự án",
+    "proj": {
+      "1": {
+        "role": "Vài trò: Project Manager, Fullstack Developer",
+        "name": "Hệ thống đặt phòng theo nhóm",
+        "tech": "React, Node.js, Websocket, MongoDB",
+        "list": {
+          "1": "Phân tích và thiết kế hệ thống",
+          "2": "Cài đặt front-end và back-end",
+          "3": "Thiết kế UI",
+          "4": "Managing tasks and team member"
+        }
+      },
+      "2": {
+        "role": "Vai trò:Fullstack Developer",
+        "name": "Mạng xã hội phân tán",
+        "tech": "React, Node.js, TypeScript",
+        "list": {
+          "1": "Phân tích và thiết kế hệ thống",
+          "2": "Cài đặt front-end và back-end",
+          "3": "Thiết kế UI"
+        }
+      },
+      "3": {
+        "role": "Role: Front-End Developer",
+        "name": "Ứng dụng quản lý sự kiện",
+        "tech": "Angular, TypeScript, GraphQL",
+        "list": {
+          "1": "Cài đặt front-end theo thiết kế"
+        }
+      }
+    },
+    "graduation project": "Đồ án tốt nghiệp",
+    "school project": "Đồ án môn học",
+    "real project": "Dự án thực tế",
+    "english": "Tiếng Anh: TOEIC 730"
+  }
+}

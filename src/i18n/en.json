@@ -1,0 +1,50 @@
+{
+  "common": {
+    "contact": "Contact",
+    "profile": "Profile",
+    "profile content": "I am Nguyễn Đình Hải, 22 years old. I studied Information Technology at University of Science Ho Chi Minh City because I want to become a software engineer. I oriented myself to be a Web Front-End Developer and I want improve myself as a technical specialist because I love learning and using new technology in my work.",
+    "skills": "Skills",
+    "language": "Language",
+    "education": "Education",
+    "work experience": "Work Experience",
+    "projects": "Project",
+    "hcmus": "University of Science Ho Chi Minh City",
+    "professional": "Major: Software Engineering",
+    "job": "Using Angular to build front-end for projects",
+    "proj": {
+      "1": {
+        "role": "Role: Project Manager, Fullstack Developer",
+        "name": "Hotel Group Booking",
+        "tech": "React, Node.js, Websocket, MongoDB",
+        "list": {
+          "1": "Analyzing and design the system",
+          "2": "Implementing front-end and back-end",
+          "3": "Design UI",
+          "4": "Managing tasks and team member"
+        }
+      },
+      "2": {
+        "role": "Role:Fullstack Developer",
+        "name": "Decentralized Social Network",
+        "tech": "React, Node.js, TypeScript",
+        "list": {
+          "1": "Analyzing and design the system",
+          "2": "Implementing front-end and back-end",
+          "3": "Design UI"
+        }
+      },
+      "3": {
+        "role": "Role: Front-End Developer",
+        "name": "Joynit - Event and Calender Management Application",
+        "tech": "Angular, TypeScript, GraphQL",
+        "list": {
+          "1": "Implementing web front-end base on the design"
+        }
+      }
+    },
+    "graduation project": "Graduation Project",
+    "school project": "School Project",
+    "real project": "Real Project",
+    "english": "English: TOEIC 730"
+  }
+}
