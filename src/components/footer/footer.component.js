@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDoubleUp } from '../../components';
+import { withRouter } from 'react-router-dom';
 import { Facebook, GitHub, Gitlab, Linkedin } from 'react-feather';
 import {
   Wrapper,
@@ -9,7 +10,7 @@ import {
   Text
 } from './footer.styles';
 
-const Footer = props => {
+const Footer = ({history}) => {
   const handleTop = _ => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -45,4 +46,4 @@ const Footer = props => {
   );
 };
 
-export default Footer;
+export default withRouter(Footer);
