@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TagMulti,
   FileDocument,
@@ -29,15 +29,21 @@ import {
   SkillItem,
   TimeSpanItem,
   ListContent,
-  Button
+  Button,
+  LngButton
 } from './cv.styles';
 import { useTranslation } from 'react-i18next';
 window.html2canvas = html2canvas;
 
 const CV = props => {
   useChangeTitle('Nguyễn Đình Hải - CV');
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const [isPrint, setPrint] = useState(false);
+  const [lng, setLng] = useState('en');
+
+  useEffect(() => {
+    i18n.changeLanguage(lng);
+  }, [lng, i18n]);
 
   const handleDownload = _ => {
     setPrint(true);
@@ -45,6 +51,10 @@ const CV = props => {
       window.print();
       setPrint(false);
     });
+  };
+
+  const handleLng = _ => {
+    setLng(lng === 'en' ? 'vi' : 'en');
   };
 
   return (
@@ -269,9 +279,14 @@ const CV = props => {
         </BodySection>
       </Container>
       {!isPrint && (
-        <Button onClick={handleDownload} isPrint={isPrint}>
-          Print CV
-        </Button>
+        <>
+          <Button onClick={handleDownload}>
+            Print CV
+          </Button>
+          <LngButton onClick={handleLng}>
+            {lng}
+          </LngButton>
+        </>
       )}
     </Wrapper>
   );

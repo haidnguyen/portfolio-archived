@@ -9,7 +9,7 @@ i18n
     resources: {en, vi},
     defaultNS: 'common',
     fallbackLng: 'en',
-    lng: 'en',
+    lng: 'vi',
   });
 
 export default i18n;

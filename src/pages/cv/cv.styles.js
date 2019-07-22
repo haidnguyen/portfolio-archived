@@ -211,7 +211,13 @@ const Button = styled.span`
   padding: .5rem 1rem;
   display: flex;
   flex-direction: column;
- 
+`;
+
+const LngButton = styled(Button)`
+  top: 40px;
+  left: 0;
+  background-color: var(--light-cyan);
+  text-transform: uppercase;
 `;
 
 export {
@@ -232,5 +238,6 @@ export {
   SkillItem,
   TimeSpanItem,
   ListContent,
-  Button
+  Button,
+  LngButton
 };
