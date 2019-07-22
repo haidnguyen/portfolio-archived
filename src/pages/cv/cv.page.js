@@ -88,7 +88,7 @@ const CV = props => {
                   <div>
                     <User size={16} />
                   </div>
-                  <span />
+                  <span>https://dinhhai281.github.io/#/</span>
                 </ContactItem>
               </Content>
             </Block>
