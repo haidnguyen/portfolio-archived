@@ -68,7 +68,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
       if (
         homeRef &&
         homeRef.current &&
-        homeRef.current.getBoundingClientRect().top > -500 &&
+        homeRef.current.getBoundingClientRect().top > -200 &&
         active !== 'home'
       ) {
         selectItem('home');
