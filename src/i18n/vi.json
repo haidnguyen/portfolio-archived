@@ -34,8 +34,8 @@
         }
       },
       "3": {
-        "role": "Role: Front-End Developer",
-        "name": "Ứng dụng quản lý sự kiện",
+        "role": "Vai trò: Front-End Developer",
+        "name": "Joynit - Ứng dụng quản lý sự kiện",
         "tech": "Angular, TypeScript, GraphQL",
         "list": {
           "1": "Cài đặt front-end theo thiết kế"
