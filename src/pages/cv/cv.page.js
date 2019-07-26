@@ -140,7 +140,7 @@ const CV = props => {
               <Content>
                 <SkillItem>JavaScript</SkillItem>
                 <SkillItem>HTML</SkillItem>
-                <SkillItem>CSS</SkillItem>
+                <SkillItem>CSS/SCSS</SkillItem>
                 <SkillItem>React</SkillItem>
                 <SkillItem>Redux/Redux-saga</SkillItem>
                 <SkillItem>TypeScript</SkillItem>

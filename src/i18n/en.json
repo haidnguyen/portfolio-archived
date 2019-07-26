@@ -2,7 +2,7 @@
   "common": {
     "contact": "Contact",
     "profile": "Profile",
-    "profile content": "I am Nguyễn Đình Hải, 22 years old. I studied Information Technology at University of Science Ho Chi Minh City because I want to become a software engineer. I oriented myself to be a Web Front-End Developer and I want improve myself as a technical specialist because I love learning and using new technology in my work.",
+    "profile content": "I am Nguyễn Đình Hải, 22 years old. I studied Information Technology at University of Science Ho Chi Minh City because I want to become a software engineer. I oriented myself to be a Web Front-End Developer and I want to improve myself as a technical specialist because I love learning and using new technology in my work.",
     "skills": "Skills",
     "language": "Language",
     "education": "Education",
@@ -24,7 +24,7 @@
         }
       },
       "2": {
-        "role": "Role:Fullstack Developer",
+        "role": "Role: Fullstack Developer",
         "name": "Decentralized Social Network",
         "tech": "React, Node.js, TypeScript",
         "list": {
