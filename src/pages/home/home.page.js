@@ -158,7 +158,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
             <InformationSection animate={aboutAnimate} slideLeft>
               <Label>Who Am I?</Label>
               <Text>
-                I'm a Front-End Developer. I studied at University of Science Ho
+                I'm a Full-Stack Developer. I studied at University of Science Ho
                 Chi Minh City. I have been started make web application with
                 Node.js, Angular, React for 2 years.
               </Text>

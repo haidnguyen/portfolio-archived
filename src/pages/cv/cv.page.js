@@ -61,7 +61,7 @@ const CV = props => {
     <Wrapper isPrint={isPrint}>
       <Container id='cv'>
         <Header>Nguyễn Đình Hải</Header>
-        <PositionSection>Front-End Web Developer</PositionSection>
+        <PositionSection>Full-Stack Web Developer</PositionSection>
         <BodySection>
           <LeftSection>
             <Block>
