@@ -1,17 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import rootReducer from '../reducers'
 
-const middlewares = [];
+const middlewares = []
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares.push(createLogger());
-};
+  middlewares.push(createLogger())
+}
 
-const store = createStore(
-  rootReducer,
-  undefined,
-  applyMiddleware(...middlewares)
-);
+const enhancer = middlewares => {
+  return process.env.NODE_ENV === 'development'
+    ? composeWithDevTools({
+        trace: true,
+        traceLimit: 25,
+      })(applyMiddleware(...middlewares))
+    : applyMiddleware(...middlewares)
+}
 
-export default store;
+const store = createStore(rootReducer, undefined, enhancer(middlewares))
+
+export default store
