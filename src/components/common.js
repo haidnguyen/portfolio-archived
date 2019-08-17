@@ -40,7 +40,7 @@ const Section = styled.div`
   ${props =>
     props.dark &&
     css`
-      background-color: var(--background-dark);
+      background-color: var(--background-dark) !important;
     `};
 `;
 
@@ -151,5 +151,5 @@ export {
   Skill,
   Project,
   GraduationCap,
-  Working
+  Working,
 };

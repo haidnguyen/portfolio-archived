@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useChangeTitle } from '../../hooks';
 import { includes } from 'ramda';
+import { debounce } from '../../utils';
 import {
   doSelectItem,
   getActive,
   doAnimate,
-  getAnimation
+  getAnimation,
 } from '../../reducers/navigation';
 import { connect } from 'react-redux';
 import {
@@ -21,7 +22,7 @@ import {
   SkillBar,
   Gallery,
   ContactForm,
-  Footer
+  Footer,
 } from '../../components';
 import {
   Wrapper,
@@ -39,6 +40,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
   const homeRef = useRef();
   const portfolioRef = useRef();
   const contactRef = useRef();
+  const blogRef = useRef();
 
   const [aboutAnimate, setAboutAnimate] = useState(false);
   const [portfolioAnimate, setPortfolioAnimate] = useState(false);
@@ -75,7 +77,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
       }
 
       if (
-        portfolioRef && 
+        portfolioRef &&
         portfolioRef.current &&
         portfolioRef.current.getBoundingClientRect().top < 400 &&
         portfolioRef.current.getBoundingClientRect().top > -10 &&
@@ -95,13 +97,25 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
         selectItem('contact');
         animate('contact');
       }
+
+      if (
+        blogRef &&
+        blogRef.current &&
+        blogRef.current.getBoundingClientRect().top < 300 &&
+        blogRef.current.getBoundingClientRect().top > 40 &&
+        active !== 'blog'
+      ) {
+        selectItem('blog');
+        animate('blog');
+      }
     };
 
     handleScroll();
-    window.onscroll = handleScroll;
+    const debouncedScroll = debounce(handleScroll, 100);
+    window.onscroll = debouncedScroll;
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', debouncedScroll);
     };
   });
 
@@ -158,8 +172,8 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
             <InformationSection animate={aboutAnimate} slideLeft>
               <Label>Who Am I?</Label>
               <Text>
-                I'm a Full-Stack Developer. I studied at University of Science Ho
-                Chi Minh City. I have been started make web application with
+                I'm a Full-Stack Developer. I studied at University of Science
+                Ho Chi Minh City. I have been started make web application with
                 Node.js, Angular, React for 2 years.
               </Text>
             </InformationSection>
@@ -193,29 +207,35 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
         </Box>
       </Section>
 
+      <Section id='blog' ref={blogRef}>
+        <Box>
+          <Title animationName='blog'>Blog</Title>
+        </Box>
+      </Section>
+
       <Section id='contact' ref={contactRef} dark cleartop>
-        <Decoration />
+        <Decoration color='#ffffff' />
         <Box>
           <Title animationName='contact' contract>
             Contact
           </Title>
-          <ContactForm animate={formAnimate}/>
+          <ContactForm animate={formAnimate} />
         </Box>
       </Section>
 
-      <Footer/>
+      <Footer />
     </Wrapper>
   );
 };
 
 const mapStateToProps = state => ({
   active: getActive(state),
-  animation: getAnimation(state)
+  animation: getAnimation(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   selectItem: item => dispatch(doSelectItem(item)),
-  animate: animation => dispatch(doAnimate(animation))
+  animate: animation => dispatch(doAnimate(animation)),
 });
 
 export default connect(

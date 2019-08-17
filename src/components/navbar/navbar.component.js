@@ -4,18 +4,11 @@ import { getActive, doSelectItem } from '../../reducers/navigation';
 import { Wrapper, Container, Item, Affix } from './navbar.styles';
 
 const Navbar = ({ active, selectItem, ...rest }) => {
-
   const [fixed, setFixed] = useState(false);
 
   const renderItem = value => {
-
     return (
-      <Item
-        active={value === active}
-        key={value}
-        to={`#${value}`}
-        smooth
-      >
+      <Item active={value === active} key={value} to={`#${value}`} smooth>
         {value}
       </Item>
     );
@@ -30,7 +23,7 @@ const Navbar = ({ active, selectItem, ...rest }) => {
       <Affix onChange={handleFixed}>
         <Wrapper {...rest} fixed={fixed}>
           <Container>
-            {['home', 'about', 'portfolio', 'contact'].map(item =>
+            {['home', 'about', 'portfolio', 'blog', 'contact'].map(item =>
               renderItem(item)
             )}
           </Container>
@@ -41,11 +34,11 @@ const Navbar = ({ active, selectItem, ...rest }) => {
 };
 
 const mapStateToProps = state => ({
-  active: getActive(state)
+  active: getActive(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectItem: item => dispatch(doSelectItem(item))
+  selectItem: item => dispatch(doSelectItem(item)),
 });
 
 export default connect(

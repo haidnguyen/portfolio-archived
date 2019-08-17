@@ -61,14 +61,14 @@ const slideInRight = keyframes`
 const Wrapper = styled.div``;
 
 const Container = styled(Row).attrs(props => ({
-  gutter: 0
+  gutter: 0,
 }))`
   margin-top: 5rem;
 `;
 
 const HexagonSection = styled(Col).attrs(props => ({
   xs: 12,
-  md: 6
+  md: 6,
 }))`
   display: flex !important;
   flex-direction: column;
@@ -95,7 +95,7 @@ const Label = styled.span`
 `;
 
 const Text = styled.span`
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--primary);
   width: 180px;
   text-align: center;
@@ -109,7 +109,7 @@ const Text = styled.span`
 
 const InformationSection = styled(Col).attrs(props => ({
   xs: 24,
-  md: 12
+  md: 12,
 }))`
   padding: 1rem;
   display: flex !important;
@@ -154,6 +154,10 @@ const Box = styled.div`
 
 const Decoration = styled(DecorationIcon)`
   margin-bottom: 4rem;
+  path {
+    fill: ${props => props.color};
+    stroke: ${props => props.color};
+  }
 `;
 
 const Mask = styled.div`
@@ -163,8 +167,6 @@ const Mask = styled.div`
   left: 0;
   right: 0;
 `;
-
-
 
 export {
   Wrapper,
