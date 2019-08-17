@@ -23,6 +23,7 @@ import {
   Gallery,
   ContactForm,
   Footer,
+  Blogs,
 } from '../../components';
 import {
   Wrapper,
@@ -210,6 +211,7 @@ const HomePage = ({ active, selectItem, animate, animation }) => {
       <Section id='blog' ref={blogRef}>
         <Box>
           <Title animationName='blog'>Blog</Title>
+          <Blogs />
         </Box>
       </Section>
 

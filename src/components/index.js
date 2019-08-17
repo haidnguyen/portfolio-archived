@@ -6,4 +6,5 @@ export { default as SkillBar } from './skill-bar/skill-bar.component';
 export { default as Gallery } from './gallery/gallery.component';
 export { default as ContactForm } from './contact-form/contact-form.component';
 export { default as Footer } from './footer/footer.component';
+export { default as Blogs } from './blogs/blogs.component';
 export * from './common';
