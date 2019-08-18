@@ -1,4 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 const Wrapper = styled.div`
   margin-top: 6rem;
@@ -13,6 +23,12 @@ const PostContainer = styled.div`
   margin: 0 auto;
   margin-bottom: 2rem;
   cursor: pointer;
+  opacity: 0;
+  ${props =>
+    props.animate &&
+    css`
+      animation: ${fadeIn} 0.5s ${props.delay} ease-in forwards;
+    `}
 `;
 
 const ImageSection = styled.div`

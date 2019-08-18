@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { includes } from 'ramda';
 import { Row, Col } from 'antd';
 import {
   Wrapper,
@@ -8,13 +10,20 @@ import {
   Date,
   SummaryContent,
 } from './blogs.styles';
+import { getAnimation } from '../../reducers/navigation/navigation.selector';
 
-const Blogs = () => {
+const Blogs = ({ animation }) => {
+  const [animate, setAminate] = useState(false);
+
+  useEffect(() => {
+    setAminate(includes('blog', animation));
+  }, [animation]);
+
   return (
     <Wrapper>
       <Row>
         <Col xs={24} md={12} lg={6}>
-          <PostContainer>
+          <PostContainer animate={animate} delay='.15s'>
             <ImageSection>
               <img
                 src='https://via.placeholder.com/270x200'
@@ -30,7 +39,7 @@ const Blogs = () => {
           </PostContainer>
         </Col>
         <Col xs={24} md={12} lg={6}>
-          <PostContainer>
+          <PostContainer animate={animate} delay='.3s'>
             <ImageSection>
               <img
                 src='https://via.placeholder.com/270x200'
@@ -46,7 +55,7 @@ const Blogs = () => {
           </PostContainer>
         </Col>
         <Col xs={24} md={12} lg={6}>
-          <PostContainer>
+          <PostContainer animate={animate} delay='.45s'>
             <ImageSection>
               <img
                 src='https://via.placeholder.com/270x200'
@@ -62,7 +71,7 @@ const Blogs = () => {
           </PostContainer>
         </Col>
         <Col xs={24} md={12} lg={6}>
-          <PostContainer>
+          <PostContainer animate={animate} delay='.6s'>
             <ImageSection>
               <img
                 src='https://via.placeholder.com/270x200'
@@ -82,4 +91,8 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+const mapStateToProps = state => ({
+  animation: getAnimation(state),
+});
+
+export default connect(mapStateToProps)(Blogs);
