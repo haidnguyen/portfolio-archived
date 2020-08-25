@@ -10,10 +10,13 @@
     "noUnusedLocals": false,
     "baseUrl": "src",
     "paths": {
-      "@utils/*": ["./utils/*"],
-      "@components/*": ["./components/*"],
+      "@app/*": ["./src/*"],
     },
     "types": ["jest", "node"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
   },
   "exclude": [
     "node_modules",

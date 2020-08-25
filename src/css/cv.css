@@ -1,0 +1,16 @@
+.cv-container {
+  font-family: 'Roboto' !important;
+
+  @media print {
+    background-color: transparent !important;
+    padding: 0 !important;
+  }
+}
+
+.cv-main {
+  @apply bg-white;
+
+  @media print {
+    background-color: transparent !important;
+  }
+}

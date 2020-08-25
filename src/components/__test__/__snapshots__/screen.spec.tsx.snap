@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="h-full relative flex justify-center items-center"
+  >
+    <canvas
+      class="h-full screen-canvas"
+      id="canvas"
+    >
+      Your browser does not support HTML5 canvas
+    </canvas>
+    <div
+      class="absolute flex flex-col text-4xl justify-center items-center text-white"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <span>
+          Hi, I‘m 
+          <span
+            class="text-name"
+          >
+            Nguyễn Đình Hải
+          </span>
+        </span>
+        <span>
+          Full-Stack Web Developer
+        </span>
+      </div>
+      <div
+        class="main-button font-medium"
+      >
+        <span
+          class="mr-3"
+        >
+          View my work
+        </span>
+        <svg
+          class="main-arrow"
+          fill="none"
+          height="20"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="5"
+            x2="19"
+            y1="12"
+            y2="12"
+          />
+          <polyline
+            points="12 5 19 12 12 19"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
