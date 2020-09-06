@@ -3,7 +3,7 @@ import Home from 'pages';
 import React from 'react';
 
 describe('Home', () => {
-  it('render correctly', () => {
+  it('should render correctly', () => {
     const { asFragment } = render(<Home></Home>);
 
     expect(asFragment()).toMatchSnapshot();

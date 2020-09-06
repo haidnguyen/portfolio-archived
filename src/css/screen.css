@@ -1,0 +1,42 @@
+.screen-cavas {
+  @apply w-full;
+  @apply h-full;
+}
+
+.text-name {
+  color: var(--name-color);
+  @apply font-medium;
+}
+
+.main-button {
+  @apply flex;
+  @apply items-center;
+
+  @apply text-xl;
+  @apply mt-2;
+  @apply px-6;
+  @apply py-2;
+  @apply border-2;
+  @apply border-white;
+  @apply cursor-pointer;
+
+  @apply transition;
+  @apply duration-150;
+  @apply ease-out;
+}
+
+.main-arrow {
+  @apply transition-all;
+  @apply duration-150;
+  @apply ease-out;
+}
+
+.main-button:hover {
+  background-color: var(--light-cyan);
+  border-color: var(--light-cyan);
+}
+
+
+.main-button:hover .main-arrow {
+  transform: rotate(90deg);
+}
